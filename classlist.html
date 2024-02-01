@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스리스트</title>
+    <style>
+        .container {
+            width: 800px;
+            margin: 300px auto;
+        }
+      #myElement {
+        color: red;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      /* #myElement의 클래스 이름은 .hidden 으로 정의 해줌
+        왜냐하면 아래에 넣어줘야 하기 때문에 */
+      #myElement.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button onclick="hidenEL()">숨기기</button>
+      <button onclick="removeEL()">보이기</button>
+      <div id="myElement">이 요소를 숨기거나 보이기</div>
+    </div>
+    <script>
+      function hidenEL() {
+        var element = document.getElementById("myElement");
+        // 숨기기버튼 클릭했을 때 클래스를 더하는 코드
+        element.classList.add("hidden");
+      }
+
+      function removeEL() {
+        var element = document.getElementById("myElement");
+        // 보이기버튼 클릭했을 때 클래스를 지우는 코드
+        element.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

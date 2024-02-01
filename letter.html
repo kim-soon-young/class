@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>세션선택-switch문</title>
+    <style>
+      body {
+        background-color: #0c3268;
+        color: #fff;
+      }
+      p {
+        margin-top: 80px;
+        font-size: 2em;
+        font-weight: 700;
+        text-align: center;
+        text-shadow: 1px 2px 1px #000;
+      }
+      p strong {
+        color: yellow;
+        font-size: 2.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var letter = prompt("알파벳을 입력해주세요.");
+      switch (letter.tolowerCase()) {
+        case "a":
+          document.write(`<p><strong>apple</strong>사과를 선택하셨습니다.</p>`);
+          break;
+        case "b":
+          document.write(
+            `<p><strong>banana</strong>바나나를 선택하셨습니다.</p>`
+          );
+          break;
+        case "c":
+          document.write(
+            `<p><strong>cacao</strong>카카오를 선택하셨습니다.</p>`
+          );
+          break;
+        case "d":
+          document.write(
+            `<p><strong>durian</strong>두리안을 선택하셨습니다.</p>`
+          );
+          break;
+        case "e":
+          document.write(`<p><strong>egg</strong>달걀을 선택하셨습니다.</p>`);
+          break;
+
+        default:
+          alert("잘못 입력했습니다.");
+      }
+
+    </script>
+  </body>
+</html>

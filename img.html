@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 변경</title>
+  </head>
+  <body>
+    <img src="images/book1.jpg" alt="기본이미지" id="myImage" />
+    <button onclick="changeImg()">이미지 변경</button>
+    <script>
+      function changeImg() {
+        // 버튼을 눌렀을 때 이미지가 바뀜
+        // 이미지를 변수에 담는다.
+        // var myImage = document.querySelector("#myImage")
+        // 또는 아래 처럼 가능
+        //  var myImage = document.get("#myImage")
+        var myImage = document.getElementById("myImage");
+        // 아이디.속성.마지막이 아래 링크면
+        if (myImage.src.endsWith("images/book1.jpg")) {
+          var newImagePath = myImage.src.replace(
+            "images/book1.jpg",
+            "images/book2.jpg"
+          );
+        } else {
+          var newImagePath = myImage.src.replace(
+            "images/book2.jpg",
+            "images/book1.jpg"
+          );
+        }
+        // 새로운 이미지 경로를 이미지 요소의 src 속성에 설정하여 이미지를 변경한다.
+        myImage.src = newImagePath;
+      }
+    </script>
+  </body>
+</html>

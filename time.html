@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //now라는 변수에 new Date 담음
+        //console now 위치 알려줘
+        var now = new Date();
+        console.log(now);
+        // display는 now에 함수를 써서 시간,디스플레이를 출력을 해라.
+        var display = now.toLocaleDateString()
+        var time = now.toLocaleTimeString()
+        //display 위치를 나타내라.
+        //html에 나타내라
+        console.log(display);
+        document.write(`<h1>오늘은</h1> ${display} ${time}`)
+    </script>
+</body>
+</html>

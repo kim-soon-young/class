@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 변경코드</title>
+</head>
+<body>
+    <!-- 토글 : 보이고 안 보이고 두 가지 기능이 있는 것 -->
+    <button onclick="toggleImage()">이미지 변경</button>
+    <img src="images/book1.jpg" alt="책1" id="myImage">
+    <div id="myElement">이 요소를 숨기고 보이기</div>
+    <script>
+        var image = false;
+        function toggleImage(){
+            var changeImg = document.getElementById("myImage")
+            if(image){
+                changeImg.src = "images/book1.jpg";
+                changeImg.alt = "기존 이미지"
+                image = false;
+            }
+            else{
+                changeImg.src = "images/book2.jpg";
+                changeImg.alt = "기존 이미지"
+                image = true;
+
+            }
+        }
+    </script>
+</body>
+</html>

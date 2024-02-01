@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수-나이계산</title>
+  </head>
+  <body>
+    <script>
+      // 나익 계산
+      // var currentYear = 2024;
+      // var birthYear = prompt("태어난 연도를 입력하세요.(YYYY)", "2024");
+      // var age = currentYear - birthYear;
+      // console.log(birthYear);
+      // document.write(`${currentYear}년 현재 <br>`);
+      // document.write(`${birthYear}년에 태어난 사람의 나이는 ${age}세입니다.`);
+
+      // 두수를 변수에 저장
+      //   var apple = 2000;
+      //   var banana = 10000;
+      //   var total = apple + banana;
+      //   document.write(`사과 가격 ${addCommas(apple)}</br>`);
+      //   document.write(`바나나 가격 ${addCommas(banana)}</br>`);
+      //   document.write(`총 가격 ${addCommas(tatal)}`);
+      //   //콤마추가코드
+      //   function addCommas(num) {
+      //     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      //   }
+
+      var apple = Number(prompt("사과 가격을 입력하세요."));
+      var banana = Number(prompt("바나나 가격을 입력하세요."));
+      var total = apple + banana;
+      var price = total.toLocaleString("ko-KR");
+      document.write(price);
+    </script>
+  </body>
+</html>

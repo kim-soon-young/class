@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쇼핑몰 예제</title>
+    <style>
+        .inner {
+            width: 800px;
+            margin: 200px auto;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="inner">
+    <h1>쇼핑몰 예제</h1>
+
+    <label for="productName">상품의 이름 : </label>
+    <input type="text" id="productName" />
+    <br />
+    <label for="productCategory">상품의 카테고리:</label>
+    <select id="productCategory">
+      <option value="전자제품">전자제품</option>
+      <option value="의류">의류</option>
+      <option value="도서">도서</option>
+      <option value="식품">식품</option>
+    </select>
+    <br />
+    <button onclick="calcLateDiscount()">할인율 계산하기</button>
+    <br />
+    <div id="result"></div>
+    </div>
+</div>
+    <script>
+      function calcLateDiscount() {
+        const productName = document.getElementById("productName").value;
+        const productCategory = document.getElementById("productCategory").value;
+        const originalPrice = 100000; // 상품의 원래 가격
+        let discountRate = 0;
+        switch (productCategory) {
+          case "전자제품":
+            discountRate = 0.1; //10%할인
+            break;
+            case "의류":
+            discountRate = 0.2; //10%할인
+            break;
+            case "도서":
+            discountRate = 0.3; //10%할인
+            break;
+            case "식품":
+            discountRate = 0.4; //40%할인
+            break;
+            default : discountRate = 0; // 기본 할인율 없음
+            break;
+        }
+        const discountPrice = originalPrice * (1 - discountRate);
+        const resultElement = document.getElementById("result")
+        // 결과 텍스트 설정
+        resultElement.innerHTML = `${productName}은(는) ${productCategory}카테고리로 ${
+          discountRate * 100}%할인을 받아서 ${discountPrice}원에 판매 중입니다.`;
+      }
+        </script>
+  </body>
+</html>

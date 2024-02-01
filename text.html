@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang=ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textChange</title>
+</head>
+<body>
+    <button onclick="toggleText()" id="changeBtn">기존글자</button>
+    <script>
+        // toggle 적응하기 위해서
+        var text = false;
+        function toggleText(){
+            var changeBtn = document.getElementById("changeBtn")
+            if(text) {
+                // innerText 자바스크립트 요소
+                changeBtn.innerText = "기존글자";
+                text = false;
+                console.log(text);
+            }
+            else {
+                changeBtn.innerText = "새로운 글자";
+                text = true;
+                console.log(text);
+            }
+        }
+    </script>
+</body>
+</html>

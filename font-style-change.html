@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 반응형 할 때 사용할 수 있는 코드 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- defer를 사용하는 경우도 있지만 우리는 하자마라
+    defer는 스크립트 처음에 쓰는 내용과 같음
+    window.onload = function(){} -->
+    <!-- <script src="js/script.js" defer></script> -->
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <h1 id="heading">자바 스크립트</h1>
+    <p class="text">위 텍스트를 클릭해 보세요.</p>
+    <script>
+      // heading을 선언합니다. = 문서에 있는 쿼리셀렉트("아이디헤딩") 불러와라.
+      var heading = document.querySelector("#heading");
+      // 헤딩'에' 클릭해서 = 행동해라.
+      heading.onclick = function () {
+        //헤딩에 스타일에 컬러 =
+        heading.style.color = "red";
+      };
+      var text = document.querySelector(".text");
+      // 헤딩'에' 클릭해서 = 행동해라.
+      text.onclick = function () {
+        //헤딩에 스타일에 컬러 =
+        text.style.color = "blue";
+        text.style.fontSize = "30px";
+        text.style.fontWeight = "900";
+      };
+    </script>
+  </body>
+</html>

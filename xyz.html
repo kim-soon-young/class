@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var userNumber = prompt("숫자를 입력하세요.");
+      // null 입력된 값이 없다. 공백도 포함하기 때문에 아래 포함
+      if (userNumber !== null && userNumber !== "") {
+        // alert("입력했습니다.")
+        if (userNumber % 3 === 0) {
+          alert("3의 배수입니다.");
+        } else {
+          alert("3의 배수가 아닙니다..");
+        }
+        // 삼항연산자 적용
+        userNumber % 3 === 0
+          ? alert("3의 배수입니다.")
+          : alert("3의 배수가 아닙니다..");
+      } else {
+        alert("아무거나 입력해주세요");
+      }
+      // 삼항연산자 적용
+      userNumber !== null && userNumber !== ""
+        ? userNumber % 3 === 0
+          ? alert("3의 배수입니다.")
+          : alert("3의 배수가 아닙니다..")
+        : alert("아무거나 입력해주세요");
+    </script>
+  </body>
+</html>

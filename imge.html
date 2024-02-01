@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 반응형 할 때 사용할 수 있는 코드 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- defer를 사용하는 경우도 있지만 우리는 하자마라
+    defer는 스크립트 처음에 쓰는 내용과 같음
+    window.onload = function(){} -->
+    <!-- <script src="js/script.js" defer></script> -->
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <h1 id="heading">자바 스크립트</h1>
+    <p class="text">위 텍스트를 클릭해 보세요.</p>
+    <script>
+      // 확인용 메세지
+      // alert("안녕하세요!!")
+      // confirm("화면을 종료하시겠습니까?")
+      // prompt("이름을 입력하세요")
+
+      // 위치 찾을 때
+      //   console.log("안녕");
+
+      // 변수로 위치를 찾을 때
+      // var name =prompt ("이름을 입력하세요", "아무개")
+      // console.log(name);
+
+      // 입력값을 보고 어디 있는 지 알수 있음
+      // var age = prompt ("나이 입력","" )
+      // console.log(age);
+
+      // html에 출력 가능
+      // document.write("안녕");
+      // document.write("<h1> 자바 스크립트 </h1>")
+
+      // var name = prompt("이름을 입력하세요.");
+      //   document.write("<h1>" + name + "</h1>");
+      document.write(`<h1>${name}</h1>`);
+      document.write("<img src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fthumb2.gettyimageskorea.com%2Fimage_preview%2F700%2F202211%2FFPL%2F1438218954.jpg&type=a340' alt='예시 이미지'>");
+      document.write(`<img src='bg.jpg'>`);
+      
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>색상변경</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      for (var i = 1; i <= 100; i++) {
+        // && = and ,  != 아니다
+        if (i % 5 == 0 && i % 7 != 0) {
+          document.write(`<p clas = "red"> ${i} </p>`);
+        } else if (i % 7 == 0 && i % 5 != 0) {
+          document.write(`<p clas = "blue"> ${i} </p>`);
+        } else if (i % 7 == 0 && i % 5 == 0) {
+          document.write(`<p clas = "blue"> ${i} </p>`);
+        }
+      }
+    </script>
+  </body>
+</html>
