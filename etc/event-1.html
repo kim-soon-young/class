@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트</title>
+    <style>
+      a:link,
+      a:visited {
+        color: #333;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+        width: 600px;
+        margin: 100px auto;
+        padding: 0;
+      }
+      li {
+        display: inline-block;
+        width: 120px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        text-align: center;
+        padding: 10px;
+      }
+      li:hover {
+        background-color: #333;
+      }
+      li:hover a {
+        color: #ccc;
+      }
+
+      #result {
+        width: 500px;
+        height: 300px;
+        margin: 30px auto;
+        border: 3px solid #ccc;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#" onclick="changeBg('green')">green</a></li>
+      <li><a href="#" onclick="changeBg('orange')">orange</a></li>
+      <li><a href="#" onclick="changeBg('purple')">purple</a></li>
+      <li><a href="#" onclick="changeBg('red')">red</a></li>
+    </ul>
+    <div id="result"></div>
+    <script>
+      function changeBg(color) {
+        // var result = document.querySelector("#result");
+        // result.style.backgroundColor = color;
+        document.querySelector("#result").style.backgroundColor = color;
+      }
+    </script>
+  </body>
+</html>

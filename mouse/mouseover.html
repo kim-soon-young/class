@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마우스오버</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border: 2px solid black;hovered
+        transition: background-color 0.3s;
+      }
+      .hovered {
+         opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>mouseout이벤트</h1>
+    <div class="box" onmouseover="mouseDown(this)"></div>
+    <script>
+      function mouseDown(element) {
+        element.classList.toggle("hovered");
+      }
+    </script>
+  </body>
+</html>

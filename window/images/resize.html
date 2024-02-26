@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>resize이벤트</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+      }
+      .box.active {
+        width: 500px;
+        height: 500px;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>resize 이벤트</h1>
+    <div class="box"></div>
+    <p>브라우저 창의 크기를 조정해주세요.</p>
+    <script>
+      window.addEventListener("resize", function handleResize() {
+        let box = document.querySelector(".box");
+        box.classList.add("active");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 400px;
+        margin: 400px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>blur이벤트</h1>
+      <label for="input">이름:</label>
+      <input type="text" id="input" placeholder="이름을 입력하세요." />
+      <span id="nameError" style="color: red"></span>
+    </div>
+    <script>
+      let nameInput = document.getElementById("input");
+      let nameError = document.getElementById("nameError");
+      nameInput.addEventListener("blur", function () {
+        //  .trim(): 문자열 앞뒤의 공백을 제거하는 문자열 메서드입니다.
+        // 사용자가 입력한 값에서 앞뒤 공백을 제거합니다.
+        let inputValue = nameInput.value.trim();
+        if (inputValue === "") {
+          nameError.textContent = "이름을 입력해주세요.";
+          nameError.style.display = "inline";
+        } else {
+          nameError.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

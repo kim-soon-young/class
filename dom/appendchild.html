@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드 리스트 1</title>
+    <style>
+      h1 {
+        color: navy;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Dom을 공부 합시다.</h1>
+      <a href="#" onclick="addContents()">더 보기</a>
+      <div id="info">
+        <!-- js 출력 -->
+        <!-- <P></p> -->
+        <!-- <img> -->
+      </div>
+    </div>
+    <script>
+      // 1. 요소 노드 만들기
+      // 2. 텍스트 노드 만들기
+      // 3. 자식 노드 연결하기
+      // 4. 부모.appendChild(자식)
+      // 5. html에 출력하기
+
+      // ===========================================
+      //더보기를 눌렀을 때 추가한 노드가 전부 나오게 함
+      function addContents() {
+        let newP = document.createElement("p");
+        let textNode = document.createTextNode(
+          "Dom은 Document Object Model 줄임말입니다."
+        );
+        newP.appendChild(textNode);
+        document.querySelector("#info").appendChild(newP);
+        // ===========================================
+        // 이미지를 추가한다.
+        let newImg = document.createElement("img");
+        let srcNode = document.createAttribute("src");
+        let altNode = document.createAttribute("alt");
+        srcNode.value = "dom.jpg";
+        altNode.value = "돔 예제 이미지";
+        // 이미지 태그에 속성들을 추가한다.
+        newImg.setAttributeNode(srcNode);
+        newImg.setAttributeNode(altNode);
+        info.appendChild(newImg);
+        document.querySelector("#info").appendChild(newImg)
+      }
+    </script>
+  </body>
+</html>

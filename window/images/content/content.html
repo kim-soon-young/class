@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content를 가져오기</title>
+  </head>
+  <body>
+    <p id="title">Hi, <span style="display: none">Javascript!</span></p>
+    <script>
+      let textContent = document.getElementById("title").textContent;
+      console.log(textContent);
+
+      let innerHTML = document.getElementById("title").innerHTML;
+      console.log(innerHTML);
+
+      let innerText = document.getElementById("title").innerText;
+      console.log(innerText);
+    </script>
+  </body>
+</html>

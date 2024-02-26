@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll이벤트</title>
+    <style>
+      .container {
+        height: 1000px;
+      }
+      .img {
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      .img.view {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>scroll이벤트</h1>
+    <div class="container">
+      <img src="images/flower.jpg" alt="꽃" class="img" />
+    </div>
+    <script>
+      window.addEventListener("scroll", function handleScroll() {
+        let img = document.querySelector(".img");
+        // getBoundingClientRect() 자바스크립트 매서드
+        // 요소의 경계 상자의 정보제공.
+        let imgposition = img.getBoundingClientRect().top;
+        let windowHeight = window.innerHeight;
+
+        if (imgposition < windowHeight) {
+          img.classList.add("view");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>keyUp이벤트</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+      .active {
+        background-color: rgb(220, 134, 22);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="box"
+      tabindex="0"
+      onkeyup="keyUp(event)"
+      onclick="this.focus()"
+    ></div>
+    <p>키보드의 Enter 키를 눌렀다가 떼면 색상이 변합니다.</p>
+    <script>
+      function keyUp(event) {
+        if (event.key === "Enter") {
+          var box = document.querySelector(".box");
+          box.classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>

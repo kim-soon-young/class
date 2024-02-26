@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메서드 가져오기</title>
+    <style>
+      .black {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="http://www.naver.com">네이버</a>
+    <script>
+      const aEl = document.querySelector("a");
+      const href = aEl.getAttribute("href"); // 속성값 가져오기
+      // console.log(href);
+      // 리셋하고 새로운 링크 변경
+      aEl.setAttribute("href", "https://atemshop.com/?gad_source=1");
+      aEl.innerText = "에잇템";
+      // console.log(aEl);
+      aEl.setAttribute("target", "blank");
+      aEl.setAttribute("class", "black");
+      aEl.setAttribute("data-d", "eatem");
+      console.log(aEl.dataset);
+    </script>
+  </body>
+</html>

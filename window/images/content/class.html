@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class가져오기</title>
+    <style>
+      .text {
+        color: aqua;
+      }
+      .red {
+        color: red;
+      }
+      .fs {
+        font-size: 30px;
+      }
+      .remove {
+        border: 3px solid #ccc;
+      }
+      .repeat {
+        background-color: blueviolet;
+        color: #fff;
+      }
+      .click {
+        color: red;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="text">클래스 추가하기</p>
+    <span class="btn">클래스 삭제하기</span>
+    <div class="repeat">클래스 추가, 삭제 반복하기</div>
+    <div class="title">contains</div>
+    <script>
+      // 클래스 추가하기
+      let pEl = document.querySelector(".text");
+      // pEl.classList.add('red')
+      // pEl.classList.add("fs")
+      pEl.classList.add("red", "fs");
+      // 클래스 삭제 하기
+      let btn = document.querySelector(".btn");
+      //   btn.classList.add("remove")
+      btn.classList.remove("remove");
+      //   클래스를 추가 삭제 반복하기
+      let dEl = document.querySelector(".repeat");
+      // dEl에 클릭이벤트 해서 toggle클래스를 적용한다.
+      // dEl.onclick = function(){
+      //     dEl.classList.toggle("repeat")
+      // }
+      // 화살표 함수
+      // function(){} ------- ()=>
+      // dEl.onclick = ()=>{
+      //     dEl.classList.toggle("repeat")
+      // }
+      dEl.addEventListener("click", function () {
+        dEl.classList.toggle("repeat");
+      });
+
+      const title = document.querySelector(".title")
+      title.onclick =()=>{
+        if(
+          title.classList.contains("click"))
+          {
+            title.classList.remove("click")
+        }else {
+          title.classList.add("click")
+        }
+      }
+    </script>
+  </body>
+</html>

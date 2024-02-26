@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 - 평균점수내기</title>
+  </head>
+  <body>
+    <script>
+      // 함수정의 : 배열의 평균을 계산하는 함수
+      // testAvg 함수는 배열을 매개변수로 받아 그 배열의 각 항목에 대한 점수를 사용자에게 입력받고, 이를 합산한 후 평균을 계산하여 반환하는 역할을 합니다.
+      // arrSub은 함수에 전달된 배열을 나타냅니다.
+      // prompt 함수를 사용하여 사용자에게 입력을 요청하고, 이를 숫자로 변환하여 sum에 더합니다.
+      function testAvg(arrSub) {
+        var sum = 0; // 점수의 총 합을 저장 (초기값으로)
+        // 사용자로부터 입력을 받아 현재 과목의 점수의 합계를 구함
+        for (var i = 0; i < arrSub.length; i++) {
+          sum += Number(prompt(`${arrSub} 점수는 ?`, "0"));
+        }
+        // 평균계산
+        var avg = sum / arrSub.length;
+        // 평균 반환
+        return avg;
+      }
+
+      // arrSubject 배열에는 "국어"와 "수학"이 포함되어 있습니다.
+      //  testAvg 함수에 arrSubject를 전달하여 두 과목의 점수를 입력받고 평균을 계산합니다.
+      // 계산된 평균을 result 변수에 저장하고, document.write를 사용하여 웹페이지에 결과를 출력합니다.
+      // 괌고을 배열로 선언
+      var arrSubject = ["국어", "수학"];
+      // 평균 함수를 호출하여 결과를 저장
+      var result = testAvg(arrSubject);
+      document.write(`평균점수는 ${result}점 입니다.`);
+    </script>
+  </body>
+</html>

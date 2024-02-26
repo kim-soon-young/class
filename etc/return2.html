@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = 0;
+        // testFun()함수를 정의한다.
+        function testFun(){
+            // 함수가 호출될 때 까지 num 1씩 증가시킨다.
+            num++;
+            // num값을 화면에 출력하고 줄바꿈
+            document.write(`${num} <br>`);
+            // num이 10이 되면 함수를 종료한다.
+            if(num == 10) return;
+            // 함수를 다시 실행해라.
+            testFun();
+        }
+        testFun();
+    </script>
+    
+</body>
+</html>

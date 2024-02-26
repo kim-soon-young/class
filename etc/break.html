@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break문</title>
+</head>
+<body>
+    <script>
+        var i,j;
+        for( i = 2; i <= 9; i++ ){
+            document.write(`<div>`);
+            document.write(`<h3> ${i}단 </h3>`) ;
+            for( j = 1 ; j <= 9; j++){
+                document.write(`${i} X ${j} = ${i * j} <Br>`)
+            }
+            document.write(`</div>`);
+            if( i === 5) break
+        }
+    </script>
+
+
+
+</body>
+</html>

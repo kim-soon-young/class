@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content를 가져오기</title>
+    <style>
+      .wrap {
+        width: 500px;
+        margin: 200px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+    <button onclick="iT()">innerText로 표시하기</button>
+    <button onclick="iH()">innerHTML로 표시하기</button>
+    <h1>현재 시각: </h1>
+    <div id="current1"></div>
+    <div id="current2"></div>
+     </div>
+    <script>
+      let now = new Date()
+      function iT(){
+      function iT(){
+        document.getElementById("current1").innerText =`<span> ${now}</span>`
+      }
+      // innerHtml 버튼을 클릭했을 때 출력해주세요. 
+      function iH(){
+        document.getElementById("current2").innerHTML = `<span> ${now} </span>`
+      }
+    </script>
+  </body>
+</html>

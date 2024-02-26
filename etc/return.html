@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return문</title>
+</head>
+<body>
+    <script>
+    // function plus(n){
+    //     let sum = 0;
+    //     for( let i = 1 ; i <= n; i++ ) {
+    //         sum += i
+    //     }
+    //     return sum;
+    // }
+    // // parseInt 정수로 만들어 줌
+    // let num = parseInt(prompt("몇까지 더해볼까요?"))
+    // document.write(`1부터 ${num}까지 더하면${plus(num)}입니다. `)
+
+    // ============================
+
+    function addNum(num1, num2){
+        var sum = num1 + num2;
+        return sum;
+    }
+    // 두수를 변수에 할당
+    var number1 = 10 ;
+    var number2 = 6 ;
+    var result = addNum(number1, number2)
+   
+    document.write(`두수의 합은 ${result}입니다.`)
+</script>
+</body>
+</html>

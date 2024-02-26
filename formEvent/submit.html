@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>submit이벤트</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      .form-wrap {
+        width: 50%;
+        margin: auto;
+      }
+      #myForm{
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      #myForm > label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      button[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        display: block;
+        margin: auto;
+        width: 100%;
+      }
+      #output{
+        margin: auto;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+    <h1>submit이벤트</h1>
+    <div class="form-wrap">
+      <form id="myForm">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" />
+        <br>
+        <label for="email">이메일:</label>
+        <input type="text" id="email" name="email" />
+        <br>
+        <button type="submit">폼 제출하기</button>
+      </form>
+      <div id="output"></div>
+    </div>
+  </div>
+    <script>
+      let myForm = document.querySelector("#myForm")
+      let output = document.querySelector("#output")
+        // function(e){  e.preventDefault()
+        // 위에를 써줘야 "제출하기" 눌렀을 때 내 정보가 나옴    
+      myForm.addEventListener("submit", function(e){  
+        e.preventDefault()
+        // form 아이디 담아두기
+        let nameInput = document.querySelector("#name")
+        let emailInput = document.querySelector("#email")
+        //사용자가 입력하는 이름의 값을 변수에 담아놓는다.
+        //아이디 안에 있는 값을 받기.
+        let nameValue = nameInput.value;
+        let emailValue = emailInput.value;
+        // console.log(`${ValueName}`);
+        // html 안에 있는 값을 받겠다.
+        output.innerHTML = 
+        `
+        <P>이름:${nameValue}</P>
+        <P>이메일:${emailValue}</P>
+        `
+      })
+    </script>
+  </body>
+</html>

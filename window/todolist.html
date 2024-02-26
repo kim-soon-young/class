@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+    <script src="todolist.js"></script>
+    <title>Document</title>
+    <style>
+      ul,
+      li {
+        list-style: square;
+        padding: 5px;
+      }
+      .wrapper {
+        width: 400px;
+        margin: 200px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>To Do List</header>
+      <form class="inputField">
+        <input
+          type="text"
+          id="addValue"
+          placeholder="할일 추가하기"
+          autofocus
+        />
+        <button type="button" id="btn" onclick="addToList()">
+          <i class="xi-plus xi-2x"></i>
+        </button>
+      </form>
+      <ul id="result" class="todolist">
+        <!-- js출력 -->
+      </ul>
+      <footer>
+        <button type="button" id="allclear"">
+          모두 삭제
+        </button>
+      </footer>
+    </div>
+    <script></script>
+  </body>
+</html>

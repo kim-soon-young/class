@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드 리스트 1</title>
+    <style>
+      ul {
+        list-style: none;
+        display: flex;
+        gap: 100px;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      #container {
+        width: 500px;
+        margin: 100px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      #info {
+        margin-top: 20px;
+      }
+      .imgStyle {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>이미지 정보</h1>
+      <ul>
+        <li><a href="#" onclick="showImgInfo('이미지1')">이미지1</a></li>
+        <li><a href="#" onclick="showImgInfo('이미지2')">이미지2</a></li>
+        <li><a href="#" onclick="showImgInfo('이미지3')">이미지3</a></li>
+      </ul>
+      <div id="info">
+        <!-- js 출력 -->
+      </div>
+    </div>
+
+    <script>
+      function showImgInfo(imgName) {
+        let infodiv = document.getElementById("info");
+        // 빈 배열에 집어 넣겠다.
+        infodiv.innerHTML = "";
+        // 이미지들의 정보를 담아놓는다.
+        let imgInfo = {
+          이미지1: {
+            image: "images/img1.jpg",
+            description:
+              "이미지1는 친근하고 활발한 개입니다. 그는 던지기를 좋아하고 공원에서의 긴 산책을 즐깁니다.",
+          },
+          이미지2: {
+            image: "images/img2.jpg",
+            description:
+              "이미지2는 충실하고 지적인 개입니다. 그는 새로운 트릭을 배우는 것을 즐기고 가장 좋아하는 사람들과 포옹하는 것을 즐깁니다.",
+          },
+          이미지3: {
+            image: "images/img3.jpg",
+            description:
+              "이미지3는 재미있고 호기심 많은 개입니다. 항상 주변을 탐험하고 새로운 친구를 사귀고 있습니다.",
+          },
+        };
+        // 이미지 노드 만들기
+        let newImg = document.createElement("img");
+        newImg.src = imgInfo[imgName].image;
+        newImg.alt = imgName;
+        newImg.classList.add("imgStyle");
+
+        // 이미지 정보 노드 만들기
+        let newP = document.createElement("p");
+        let textNode = document.createTextNode(imgInfo[imgName].description);
+        newP.appendChild(textNode);
+
+        // html 연결시키기
+        infodiv.appendChild(newImg);
+        infodiv.appendChild(newP);
+      }
+    </script>
+  </body>
+</html>

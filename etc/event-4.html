@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글자색 바꾸기</title>
+    <link rel="stylesheet" href="css/event-3.css" />
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="changeTxtColor()">글자색 바꾸기</button>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat
+      quibusdam perferendis consectetur tempora, est eligendi, nostrum quas eos
+      illo iusto iste repellat a voluptatum debitis? Aliquid modi repellendus
+      molestias?
+    </p>
+
+    <script>
+      // 스타일로 색을 바꾸는 방법
+      // function changeTxtColor(){
+      //     let p = document.querySelector("p")
+      //     p.style.color="red"
+      // }
+      // 토글로 색상변경
+      // function changeTxtColor() {
+      //   let p = document.querySelector("p");
+      //   p.classList.toggle("red");
+      // }
+      //랜덤으로 글자색 바꾸기
+      function changeTxtColor(){
+        let p = document.querySelector("p")
+        let color = ["red", "blue", "green", "yellow", "orange"]
+        let randomIndex = Math.floor(Math.random() * color.length)
+        let randomColor = color[randomIndex]
+        p.style.color = randomColor
+      }
+    </script>
+  </body>
+</html>

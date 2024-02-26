@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>keyDown이벤트</title>
+    <style>
+      .wrap {
+        margin: 100px 200px;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+      }
+      .active {
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>keyDown이벤트</h1>
+      <div class="box" tabindex="0" onkeydown="keyDown(event)"></div>
+      <p>박스를 클릭후 키보드의 Enter키를 눌러주세요.</p>
+    </div>
+    <script>
+      function keyDown(event) {
+        // Enter 키를 눌렀을 때 처리
+        if (event.key === "Enter") {
+          // 1.박스를 변수에 담는다.
+          var element = document.querySelector(".box");
+          // 2. 클래스를 더한다.
+          element.classList.add("active");
+        }
+      }
+
+      // function keyDown(event){
+      //   if(event.key === "Shift"){
+      //     var element = document.querySelector(".box");
+      //     element.classList.add("active");
+      //   }
+      // }
+    </script>
+  </body>
+</html>

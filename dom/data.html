@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- data 사용자 정의 데이터를 포함 -->
+    <button data-mov="2024">영화개봉년도</button>
+    <button data-move="02">영화개봉월</button>
+  </body>
+  <script>
+    const btnEls = document.querySelectorAll("button");
+    btnEls.forEach((el) => {
+      console.log(el.dataset);
+    });
+  </script>
+</html>

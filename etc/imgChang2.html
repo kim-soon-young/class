@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 예제 - 이미지 바꾸기</title>
+    <style>
+      img {
+        width: 200px;
+        max-width: 200px;
+        height: auto;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="images/book1.jpg" alt="책" id="imgDisplay" />
+    <button onclick="changeImg('images/book1.jpg')">이미지1</button>
+    <button onclick="changeImg('images/book2.jpg')">이미지2</button>
+    <button onclick="changeImg('images/book3.jpg')">이미지3</button>
+
+    <script>
+      function changeImg(imgpath) {
+        document.getElementById("imgDisplay").src = imgpath;
+      }
+    </script>
+  </body>
+</html>

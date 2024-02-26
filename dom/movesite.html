@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영화정보</title>
+    <style>
+        .wrap
+        {
+            width: 1200px;
+            margin: 200px auto;
+        }
+      button {
+        margin: 10px;
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #message {
+        font-size: 18px;
+        color: cadetblue;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+    <button data-move="0">서울의 봄</button>
+    <button data-move="1">파묘</button>
+    <button data-move="2">귀멸의 칼날</button>
+    <button data-move="3">마녀</button>
+    <button data-move="4">해리포터</button>
+    <button data-move="5">없음</button>
+    <div id="message"></div>
+</div>
+    <script>
+      const movies = [
+        { title: "서울의 봄", year: 2023, month: 7 },
+        { title: "파묘", year: 2024, month: 1 },
+        { title: "귀멸의 칼날", year: 2024, month: 8 },
+        { title: "마녀", year: 2022, month: 5 },
+        { title: "해리포터", year: 2002, month: 6 },
+      ];
+      const buttons = document.querySelectorAll("button");
+      const messageDiv = document.querySelector("#message");
+      //   buttons.forEach(function(){})
+      buttons.forEach((btEl) => {
+        btEl.addEventListener("click", function () {
+          const moviesIndex = parseInt(btEl.getAttribute("data-move"));
+          const movie = movies[moviesIndex];
+          if (movie) {
+            messageDiv.textContent = `영화제목: ${movie.title} ,개봉년도: ${movie.year}, 개봉 월: ${movie.month}`;
+          } else {
+            messageDiv.textContent = `해당 영화 정보가 없습니다.`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

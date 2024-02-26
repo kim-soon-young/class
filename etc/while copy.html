@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while은 반복문</title>
+    <style>
+      .blue {
+        color: blue;
+      }
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // i는 20까지 반복되고 10이상이다.
+      //조건 : 1를 2로 나눈 나머지 값이 0일 때
+      //글자가 블루로 출력되고
+      //아니면 레드로 출력되게 해주세요.
+      var i = 20;
+      while (i >= 10) {
+        if (i % 2 == 0) {
+          document.write(`<p class="blue">${i}</p>`);
+        } else {
+          document.write(`<p class="red">${i}</p>`);
+        }
+        i--;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수예제 - 쇼핑 사이트 제품소개</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>쇼핑 사이트 제품 소개</h1>
+    <div id="productlist"></div>
+    <!-- js 출력 -->
+    <script>
+      // 제품 정보를 담은 배열
+      var products = [
+        { name: "노트북", price: 1200000, description: "고성능 노트북" },
+        { name: "스마트폰", price: 800000, description: "최신 스마트폰" },
+        { name: "헤드폰", price: 50000, description: "높은 음질의 헤드폰" },
+        // ************* 추가 제품 정보를 필요에 따라서 계속 확장할 수 있다.
+      ];
+      // 쇼핑 사이트에 제품 소개하는 함수
+      function introduceProducts(products) {
+        var productlistDive = document.querySelector("#productlist");
+        // 매개변수 products를 받아와서 배열 products를 반복하기.
+        for (var i = 0; i <= products.length; i++) {
+          // producct 변수에 products 배열 안에 있는 i(인덱스 번호)에서 제품목록을 가져오기.
+          var product = products[i];
+          // 각 제품 정보를 html에 추가
+          var productinfo = `
+          <div>
+        <h2>제품명 : ${product.name} </h2>
+        <p>가격 : ${product.price}</p>
+        <p>설명 : ${product.description}</p>
+      </div>
+      <hr />
+    </div>
+        `;
+        productlistDive.innerHtml += productinfo
+        }
+      }
+      introduceProducts(products);
+    </script>
+  </body>
+</html>

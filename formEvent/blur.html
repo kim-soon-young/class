@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>blur이벤트</h1>
+    <label for="input">이름:</label>
+    <input type="text" id="input" placeholder="이름을 입력하세요."></input>
+    <script>
+        // 변수선언
+        let input = document.querySelector("#input")
+        // addEventlistener 로 alert창에 "입력 필드에서 포커스가 빠져 나갔습니다."
+        input.addEventListener("blur", function () {
+            alert("입력 필드에서 포커스가 빠져 나갔습니다.")
+        });
+    </script>
+  </body>
+</html>
