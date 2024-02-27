@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체의 메서드</title>
+  </head>
+  <body>
+    <script>
+      var nums = [1, 2, 3];
+      var chars = ["a", "b", "c", "d"];
+      // 두개의 배열 합치기 ==============
+      var numsChars = nums.concat(chars);
+      var charsNums = chars.concat(nums);
+      document.write(`nums에 chars 합치면 : ${numsChars} <br>
+          chars에nums 합치면 : ${charsNums}<br>`);
+      // 배열내에 소요 합치기 ==============
+      var string1 = nums.join();
+      document.write(`구분자 없이: ${string1}<br>`);
+      var string2 = chars.join("/");
+      document.write(`/구분자 지정: ${string2}<br>`);
+
+      // 요소 추가 - 새로운 length 값 반환
+      var ret1 = nums.push(4, 5);
+      document.write(`lenght : ${ret1} |배열: ${nums}<br>`);
+      var ret2 = chars.push("e", "f", "g", "h");
+      document.write(`lenght : ${ret2} |배열 : ${chars}`);
+    </script>
+  </body>
+</html>
