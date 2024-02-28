@@ -23,8 +23,16 @@
       // 요소 추가 - 새로운 length 값 반환
       var ret1 = nums.push(4, 5);
       document.write(`lenght : ${ret1} |배열: ${nums}<br>`);
-      var ret2 = chars.push("e", "f", "g", "h");
-      document.write(`lenght : ${ret2} |배열 : ${chars}`);
+      // var ret2 = chars.push("e", "f", "g", "h");
+      // document.write(`lenght : ${ret2} |배열 : ${chars}`);
+      var ret2 = nums.unshift(0); // 배열 앞에 추가
+      document.write(`lenght : ${ret2} |배열 : ${num} <br>`)
+      //요소 추출 - 꺼낸 요소 반환
+      var popped1 = chars.pop()
+      document.write(`꺼낸 요소: ${popped1} |배열 : ${chars}`)
+      var popped2 = chars.shift() // 첫번째 요소 꺼냄
+      document.write(`꺼낸 요소: ${popped2} |배열 : ${chars}`)
+
     </script>
   </body>
 </html>
