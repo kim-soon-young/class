@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="javascript:window.close()">닫기</button>
+    <script>
+        let now = new Date()
+        //현재 시간과 날짜를 표시
+        document.write(`현지시각은 : ${now.toLocaleString()}<br>`)
+        document.write(`현지시각은 : ${now.toLocaleDateString()}<br> `)
+        document.write(`현지시각은 : ${now.toLocaleTimeString()}`)
+    </script>
+</body>
+</html>
