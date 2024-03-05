@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머 퀴즈 게임</title>
+  </head>
+  <body>
+    <h1>타이머 퀴즈 게임</h1>
+    <p id="question"></p>
+    <input type="text" id="answer" />
+    <button onclick="checkAnswer()">다음 질문</button>
+    <p id="timer"></p>
+    <script>
+      const questions = [
+        { question: "세계에서 가장 큰 바다는?", answer: "태평양" },
+        {
+          question: "화학 원소 기호로서 H은 무엇을 나타내는가?",
+          answer: "수소",
+        },
+        {
+          question: "아인슈타인의 상대성 이론은 무엇인가?",
+          answer: "특수 상대성 이론",
+        },
+        { question: "삼국지의 작가는 누구인가?", answer: "루이스 차" },
+        { question: "지구에서 가장 가까운 행성은?", answer: "금성" },
+      ];
+      let currentQuestion = 0;
+      let timerId;
+      let timeLeft = 10;
+      // 질문 함수
+      function displayQuestion() {
+        const questionElement = document.getElementById("question");
+        questionElement.textContent = questions[currentQuestion].question;
+      }
+      //   대답 체크 함수
+      function checkAnswer() {
+        const answerInput = document.getElementById("answer");
+        const userAnswer = answerInput.value.trim().toLowerCase();
+        const correctAnswer = questions[currentQuestion].answer.toLowerCase();
+        if (userAnswer === correctAnswer) {
+          alert(`정답!`);
+        } else {
+          alert(`오답!`);
+        }
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          displayQuestion();
+          answerInput.value = ""; // 이전 답을 지운다.
+          clearInterval(timerId); // 이전 타이머 중지
+          startTimer(); // 타이머 재시작
+        } else {
+          clearInterval(timerId);
+          alert(`게임 종료`);
+          answerInput.style.display = "none"; // 입력란을 감추기
+          document.getElementById("timer").style.display = "none"; // 타이머 숨기기
+          document.querySelector("button").style.display = "none"; // 버튼 숨기기
+        }
+      }
+      //   시작 타이머
+      function startTimer() {
+        timeLeft = 10;
+        displayTime();
+        timerId = setInterval(function () {
+          timeLeft--;
+          displayTime();
+          if (timeLeft === 0) {
+            clearInterval(timerId);
+            alert("시간초과!");
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+              startTimer();
+              displayQuestion();
+            } else {
+              clearInterval(timerId);
+              alert("게임 종료!");
+              document.getElementById("answer").style.display = "none"; // 입력란을 감추기
+              document.getElementById("timer").style.display = "none"; // 입력란을 감추기
+              document.querySelector("button").style.display = "none"; // 입력란을 감추기
+            }
+          }
+        }, 1000);
+      }
+      function displayTime() {
+        const timerElement = document.getElementById("timer");
+        timerElement.textContent = `남은 시간: ${Math.max(0, timeLeft)}초`;
+      }
+      function startGame() {
+        displayQuestion();
+        startTimer();
+      }
+      startGame();
+    </script>
+  </body>
+</html>
