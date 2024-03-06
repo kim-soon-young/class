@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주문정보 받아오기</title>
+    <link rel="stylesheet" href="order.css">
+    <script src="order.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <!-- 주문정보 -->
+      <form name="order">
+        <fieldset>
+          <legend>주문정보</legend>
+          <ul>
+            <li>
+              <label for="billingName" class="field">이름 : </label>
+              <input
+                type="text"
+                class="input-box"
+                id="billingName"
+                name="billingName"
+              />
+            </li>
+            <li>
+              <label for="billingTel" class="field">연락처 : </label>
+              <input
+                type="text"
+                class="input-box"
+                id="billingTel"
+                name="billingName"
+              />
+            </li>
+            <li>
+              <label for="billingAddr" class="field">주소 : </label>
+              <input
+                type="text"
+                class="input-box"
+                id="billingAddr"
+                name="billingName"
+              />
+            </li>
+          </ul>
+        </fieldset>
+      </form>
+      <!-- 배송정보 -->
+      <form name="shop">
+        <fieldset>
+          <legend>주문정보</legend>
+          <ul>
+            <li>
+              <input type="checkbox" id="shoppingInfo" name="shoppingInfo" />
+              <label for="shoppingInfo" class="check"
+                >주문 정보와 배송 정보가 같습니다.</label
+              >
+            </li>
+            <li>
+              <label for="shoppingName" class="field">이름 : </label>
+              <input
+                type="text"
+                class="input-box"
+                id="shoppingName"
+                name="shoppingName"
+              />
+            </li>
+            <li>
+              <label for="shoppingTel" class="field">연락처 : </label>
+              <input
+                type="text"
+                class="input-box"
+                id="shoppingTel"
+                name="shoppingName"
+              />
+            </li>
+            <li>
+              <label for="shoppingAddr" class="field">주소 : </label>
+              <input
+                type="text"
+                class="input-box"
+                id="shoppingAddr"
+                name="shoppingName"
+              />
+            </li>
+          </ul>
+        </fieldset>
+        <!-- 결제하기 -->
+        <button type="submit" class="order">결제하기</button>
+      </form>
+    </div>
+  </body>
+</html>
