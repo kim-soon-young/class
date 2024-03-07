@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/signUp.css" />
-    <script src="js/signUp.js"></script>
+    <link rel="stylesheet" href="css/signUp-error.css" />
+    <script src="js/signUp-error.js"></script>
     <title>회원가입</title>
   </head>
   <body>
@@ -21,10 +21,14 @@
               required
               autocomplete="off"
             />
+            <!-- 에러 메시지 출력을 위한 span -->
+            <span class="error" id="user-id-error"></span>
           </li>
           <li>
             <label for="email" class="field">이메일</label>
             <input type="email" id="email" required />
+            <!-- 에러 메시지 출력을 위한 span -->
+            <span class="error" id="email-error"></span>
           </li>
           <li>
             <label for="user-pw1" class="field">비밀번호</label>
@@ -34,10 +38,14 @@
               placeholder="8자리 이상"
               required
             />
+            <!-- 에러 메시지 출력을 위한 span -->
+            <span class="error" id="user-pw1-error"></span>
           </li>
           <li>
             <label for="user-pw2" class="field">비밀번호 확인</label>
             <input type="password" id="user-pw2" required />
+            <!-- 에러 메시지 출력을 위한 span -->
+            <span class="error" id="user-pw2-error"></span>
           </li>
           <li>
             <label class="field">메일링 수신</label>
