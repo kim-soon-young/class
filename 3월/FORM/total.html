@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장바구니 추가</title>
+    <script src="js/total.js"></script>
+    <style>
+      #container {
+        width: 400px;
+        margin: 0 auto;
+        background-color: antiquewhite;
+        padding: 20px;
+      }
+      fieldset {
+        margin-bottom: 20px;
+        border: 1px solid #b6b5b5;
+      }
+      #total {
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>피자주문</h1>
+      <form>
+        <fieldset>
+          <legend>사이즈</legend>
+          <p>Large - 24,000원</p>
+        </fieldset>
+        <fieldset>
+          <legend>추가주문</legend>
+          <label for="pickle">
+            <input type="checkbox" id="pickle" class="checkbox" name="pickle" value="800" />
+            피클(800원)
+          </label>
+          <label for="chilly">
+            <input type="checkbox" id="chilly" class="checkbox" name="chilly" value="300" />
+            칠리소스(300원)
+          </label>
+          <label for="deeping">
+            <input type="checkbox" id="deeping" class="checkbox" name="deeping" value="500" />
+            디핑소스(500원)
+          </label>
+          <label for="stick">
+            <input type="checkbox" id="stick" class="checkbox" name="stick" value="1500" />
+            치스틱(1500원)
+          </label>
+          <label for="salad">
+            <input type="checkbox" id="salad" class="checkbox" name="salad" value="3500" />
+            콘샐러드(3500원)
+          </label>
+        </fieldset>
+        <fieldset>
+          <div id="selectedItem"></div>
+          <input type="text" id="total" name="total" class="price" />
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
