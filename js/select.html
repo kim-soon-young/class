@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <title>jq-선택자</title>
+  </head>
+  <body>
+    <h1>제이쿼리</h1>
+    <h2 id="tit"><!DOCTYPE html>
+        <html lang="ko">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <script src="js/jquery-1.10.2.min.js"></script>
+            <title>jq-선택자</title>
+          </head>
+          <body>
+            <h1>제이쿼리</h1>
+            <h2 id="tit">선택자</h2>
+            <h3>직접 선택자</h3>
+            <script>
+              $(function () {
+                // $("*").css("border", "1px solid black");
+                $("#tit")
+                .css("background-color", "lightpink")
+                .css("border", "2px solid navy")
+                .css("font-size", "50px");
+                
+                $("h3")
+                .css({ "background-color": "blue", "font-size": "20px" });
+              });
+            </script>
+          </body>
+        </html>
+        선택자</h2>
+    <h3>직접 선택자</h3>
+    <script>
+      $(function () {
+        // $("*").css("border", "1px solid black");
+        $("#tit")
+        .css("background-color", "lightpink")
+        .css("border", "2px solid navy")
+        .css("font-size", "50px");
+        
+        $("h3")
+        .css({ "background-color": "blue", "font-size": "20px" });
+      });
+    </script>
+  </body>
+</html>

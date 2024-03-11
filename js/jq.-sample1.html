@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq선택자</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1 id="title">제목</h1>
+    <p class="monday">오늘은 월요일</p>
+    
+    <script>
+      $(function () {
+        $("#title").css("color", "red");
+        $(".monday").css({
+          "font-size": "30px",
+          "color": "blue",
+          "font-weight": "bold",
+        });
+      });
+    </script>
+  </body>
+</html>
