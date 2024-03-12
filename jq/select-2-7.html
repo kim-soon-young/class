@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>map</title>
+  </head>
+  <body>
+    <script>
+      $(function () {
+        var arr1 = ["서울", "대전", "부산", "전주"];
+        var arr2 = ["한국", "미국", "일본", "중국"];
+        console.log(arr1.prototype);
+        var obj = {
+          name: "정부장",
+          area: "서울",
+        };
+        // inArray() 주어진 값이 배열안에 있는지 확인
+        // 만약에 있으면 값에 인덱스를 반환
+        var idxNum = $.inArray("부산", arr1);
+        console.log(idxNum);
+        // isArray() 배열인지 여부 확인
+        // 배열이면 true, 아니면 false
+        var akArr1 = $.isArray(arr1);
+        console.log(akArr1);
+        var akArr2 = $.isArray(obj);
+        console.log(akArr2);
+      });
+    </script>
+  </body>
+</html>
