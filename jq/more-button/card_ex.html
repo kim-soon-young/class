@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+      #product-container {
+        width: 80%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 2%;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        background-color: aqua;
+      }
+      .product {
+        width: calc(100% / 4 - 2%);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+      .product img {
+        width: 100%;
+        height: auto;
+      }
+      .product h3 {
+        font-size: 16px;
+        margin-top: 5px;
+      }
+      .product p {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      /* 더보기 버튼 스타일 */
+      #load-more {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #load-more:hover {
+        background-color: #0056b3;
+      }
+    </style>
+    <title>상품소개</title>
+  </head>
+  <body>
+    <div id="product-container">
+      <!-- js출력 카드영역이 추가될 곳 -->
+    </div>
+    <button id="load-more">더보기</button>
+    <script>
+      $(document).ready(function () {
+        var products = [
+          { image: "images/d1.png", title: "상품1", price: "$10.99", info: "상품설명1" },
+          { image: "images/d2.png", title: "상품2", price: "$20.12", info: "상품설명2" },
+          { image: "images/k.png", title: "상품3", price: "$15.85", info: "상품설명3" },
+          { image: "images/o1.png", title: "상품4", price: "$10.89", info: "상품설명4" },
+          { image: "images/o2.png", title: "상품5", price: "$20.53", info: "상품설명5" },
+          { image: "images/d1.png", title: "상품6", price: "$30.10", info: "상품설명6" },
+          { image: "images/d1.png", title: "상품7", price: "$10.99", info: "상품설명7" },
+          { image: "images/d1.png", title: "상품8", price: "$10.99", info: "상품설명8" },
+          { image: "images/d1.png", title: "상품9", price: "$10.99", info: "상품설명9" },
+          { image: "images/d1.png", title: "상품10", price: "$10.99", info: "상품설명10" },
+        ];
+        // 더보기 버튼 클릭시 추가 상품표시
+        $("#load-more").click(function () {
+          //추가 상품을 4개씩 보여주는 코드
+          var addProducts = products.slice(
+            // slice (시작, 끝)
+            $("#product-container .product").length,
+            $("#product-container .product").length + 4
+          );
+          addProducts.map(function (product) {
+            // 각 상품의 카드 영역 생성
+            var productHtml = `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.title}" />
+                    <h3>${product.title}</h3>
+                    <p>${product.price}</p>
+                    <p>${product.info}</p>
+                </div>
+                `;
+            // 생선된 카드 영역을 상품 컨테이너에 추가
+            $("#product-container").append(productHtml);
+          });
+        });
+        // 페이지로드 시 초기 상품
+        // 일단 4개 다 보이게 하기
+        $("#load-more").trigger("click");
+      });
+    </script>
+  </body>
+</html>
