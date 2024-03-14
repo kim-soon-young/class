@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <title>객체 조작 및 생성</title>
+  </head>
+  <body>
+    <button id="animateButton">에니메이션</button>
+    <div id="box" style="width: 100px; height: 100px; background-color: red"></div>
+
+    <script>
+      $(function () {
+        $("#animateButton").click(function () {
+          var box = $("#box");
+          box.animate(
+            {
+              width: box.width() == 100 ? "50px" : "100px",
+              height: box.height() == 100 ? "50px" : "100px",
+            },
+            "slow"
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

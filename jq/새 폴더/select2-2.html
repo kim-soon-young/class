@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>jq-탐색선택자</title>
+  </head>
+  <body>
+   <h1>탐색 선택자</h1>
+   <ul id="menu">
+    <li>내용1</li>
+    <li>내용2</li>
+    <li>내용3</li>
+    <li>내용4</li>
+    <li>내용5</li>
+   </ul>
+   <script>
+    $(function(){
+      // $("#menu li:first").css("background-color" ,  "#ff0")
+    // $("#menu li").eq(2).css({
+    //   "background-color": "#ff0",
+    //   "color": "#f0f"
+    // })
+    // $("#menu li").eq(3).css({
+    //   "background-color": "#f0f",
+    //   "color": "#00f"
+    // })
+    // $("#menu li:lt(3)").css({ "background-color": "#f0f",
+    //   "color": "#00f"})
+      $("#menu li:gt(2)").css({ "background-color": "#f0f",
+      "color": "#00f"})
+      $("li:first-of-type").css({ "background-color": "#f0f",
+      "color": "#00f"})
+      $("li:last-of-type").css({ "background-color": "#00f",
+      "color": "#0f0"})
+    })
+   </script>
+  </body>
+</html>

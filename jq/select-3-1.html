@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <title>객체 조작 및 생성</title>
+  </head>
+  <body>
+
+    
+    <section id="sec_1">
+      <h2>인접 관계 선택자</h2>
+      <p>내용1</p>
+    </section>
+    <section id="sec_2">
+      <h2><em>텍스트()</em></h2>
+      <p>내용2</p>
+    </section>
+
+    <script>
+      $(function () {
+        var result_1 = $("#sec_1").html();
+        console.log(result_1);
+        $("#sec_1 p").html(`<a href="#">Text1</a>`);
+        var result_2 = $("#sec_2").text();
+        $("#sec_2 h2").text('하경미')
+      });
+    </script>
+
+
+  </body>
+</html>

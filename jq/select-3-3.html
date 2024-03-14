@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <title>객체 조작 및 생성</title>
+  </head>
+  <body>
+    <div class="box1">
+      <p>내용1</p>
+      <p>내용2</p>
+    </div>
+    <div class="box2">
+      <p>내용3</p>
+      <p>내용4</p>
+    </div>
+    <div class="box3">
+      <p>내용5</p>
+      <p>내용6</p>
+    </div>
+    <script>
+      $(function () {
+        // 자식요소를 가지고와서 깊은 복사를 한다.
+        var copyObj = $(".box1").children().clone();
+        console.log(copyObj);
+
+        $(".box3").append(copyObj);
+        // .box2 요소가 다 지워짐
+        $(".box2").remove();
+        // empty() 선택 된 요소의 자식들을 모두 제거
+        $(".box3").empty();
+      });
+    </script>
+  </body>
+</html>

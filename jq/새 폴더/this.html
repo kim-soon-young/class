@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자 - this</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button>클릭하세요</button>
+    <script>
+      //  $(function () {}
+      $(document).ready(function () {
+        $("button").click(function () {
+          console.log($(this));
+          $(this).text("클릭되었습니다.");
+        });
+      });
+    </script>
+  </body>
+</html>
