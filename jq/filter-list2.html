@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>상품리스트 filter 예제</title>
+  </head>
+  <body>
+    <h2>상품리스트</h2>
+    <ul id="product-list">
+      <li class="product" data-category="electronics">노트북</li>
+      <li class="product" data-category="clothing">티셔츠</li>
+      <li class="product" data-category="electronics">헤드폰</li>
+      <li class="product" data-category="books">소설</li>
+      <li class="product" data-category="clothing">스커트</li>
+      <li class="product" data-category="books">에세이</li>
+      <li class="product" data-category="electronics">마우스</li>
+    </ul>
+    <select id="catergory-filter">
+      <option value="all">전체 카테고리</option>
+      <option value="electronics">전자제품</option>
+      <option value="clothing">의류</option>
+      <option value="books">책</option>
+    </select>
+    <script>
+      $(function () {
+        //jQuery에서 이벤트 핸들러를 등록하는 메서드 중 하나입니다. 
+        // 이 코드는 #catergory-filter 요소에 변화가 생겼을 때(
+        // 예: 사용자가 선택을 변경했을 때),
+        // 즉 select 요소에서 새로운 옵션이 선택되었을 때 함수가 실행됩니다.
+        $("#catergory-filter").change(function () {
+          var selectedCategroy = $(this).val();
+        //동등 비교 연산자 ==는 값의 타입을 변환하여 비교
+        //엄격한 동등 비교가 아니라 두 값이 같은 값을 가지고 있는지만 확인합니다.
+        //반면에 === 값뿐만 아니라 타입까지 비교하여 두 값이 정확히 일치하는지 확인합니다.
+          if (selectedCategroy == "all") {
+            $(".product").show();
+          } else {
+            $(".product").hide().filter(`[data-category = "${selectedCategroy}"]`).show();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

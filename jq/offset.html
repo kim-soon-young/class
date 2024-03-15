@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>섹션 누를 때 아래로 내려가기 -offset()</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      ul {
+        list-style: none;
+      }
+      #section-nav {
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+      }
+      #section-nav ul {
+        width: 50%;
+        display: flex;
+        text-align: center;
+      }
+      #section-nav ul li {
+        width: calc(100% / 3);
+      }
+      #main-content section {
+        padding-top: 21.14px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="section-nav">
+      <ul>
+        <li><a href="#about-us">회사 소개</a></li>
+        <li><a href="#services">서비스</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+    </nav>
+    <div id="main-content">
+      <section id="about-us" class="section" style="height: 1000px; background-color: aqua">회사 소개 내용</section>
+      <section id="services" class="section" style="height: 1000px; background-color: rgb(170, 255, 0)">서비스 내용</section>
+      <section id="contact" class="section" style="height: 1000px; background-color: rgb(189, 146, 245)">연락처 내용</section>
+    </div>
+
+    <script>
+      $(function () {
+        $("#section-nav a").click(function (e) {
+          e.preventDefault();
+          var targetSection = $(this).attr("href");
+          var targetPosition = $(targetSection).offset().top;
+          $("html, body").animate(
+            {
+              scrollTop: targetPosition,
+            },
+            1000
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
