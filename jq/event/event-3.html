@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq 이벤트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <p><a href="http://www.easyspub.co.kr/" class="btn1">버튼1</a></p>
+    <p class="txt1">내용1</p>
+    <p><a href="http://www.easyspub.co.kr/" class="btn2">버튼2</a></p>
+    <p class="txt2">내용2</p>
+    <p><button class="btn3">버튼3</button></p>
+    <p class="txt3">내용3</p>
+  </body>
+  <script>
+    $(function () {
+      $(".btn1").on("click", function (e) {
+        // 링크 클릭 시 기본 동작인 페이지 이동을 막음
+        // 여기에 원하는 동작을 추가할 수 있음
+        e.preventDfault();
+        $("txt1").css({
+          "background-color": "#0f0",
+        });
+      });
+      $(".btn2").on("click", function (e) {
+        $(".txt2").css({
+          "background-color": "#f0f",
+        });
+      }); // dblclick 더블클릭
+      $(".btn3").on("dblclick", function () {
+        $(".txt3").css({
+          "background-color": "#ff0",
+        });
+      });
+    });
+  </script>
+</html>
