@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>jq-이벤트</title>
+  </head>
+  <body>
+    <p><input type="text" nmae="user_id" id="user_id" /></p>
+    <script>
+      $(function () {
+        $(document).on("keydown", keyEventFun);
+        function keyEventFun(e) {
+          var direct = "";
+          switch (e.keyCode) {
+            case 37:
+              direct = "LEFT";
+              break;
+            case 38:
+              direct = "TOP";
+              break;
+            case 39:
+              direct = "RIGHT";
+              break;
+            case 40:
+              direct = "BOTTOM";
+              break;
+          }
+          if (direct) $("#user_id").val(direct);
+        }
+      });
+    </script>
+  </body>
+</html>

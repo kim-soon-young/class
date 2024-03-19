@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>jq-이벤트</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="wrap">
+      <p><button class="btn_1">버튼1</button></p>
+    </div>
+    <p>
+      <button class="del_1">버튼1 이벤트 해지</button>
+      <button class="del_2">버튼2 이벤트 해지</button>
+    </p>
+    <script>
+      $(function () {
+        $(".btn_1").on("mouseover", function () {
+          alert("안녕!");
+        });
+        $(document).on("mouseover", ".btn_2", function () {
+          alert("버튼2 추가됨");
+        });
+      });
+      var btn_2 = $(`<p><button class="btn_2">버튼2</button></p>`);
+      $("#wrap").append(btn_2);
+      $(".del_1").on("click", function () {
+        $(".btn_1").off("mouseover");
+      });
+      $(".del_2").on("click", function () {
+        $(document).off("mouseover", ".btn_2");
+      });
+    </script>
+  </body>
+</html>

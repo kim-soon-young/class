@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>jq-이벤트</title>
+  </head>
+  <body>
+    <h2>$(this)</h2>
+    <ul class="menuWrap_1">
+      <li><a href="#">메뉴1</a></li>
+      <li><a href="#">메뉴2</a></li>
+      <li><a href="#">메뉴3</a></li>
+    </ul>
+    <h2>Index()</h2>
+    <ul class="menuWrap_2">
+      <li><a href="#">메뉴4</a></li>
+      <li><a href="#">메뉴5</a></li>
+      <li><a href="#">메뉴6</a></li>
+    </ul>
+    <p class="idxNum"></p>
+    <script>
+      $(function () {
+        // $(this)
+        $(".menuWrap_1 a").on("click", function (e) {
+          e.preventDefault();
+          $(this).css({ "background-color": "#0ff" });
+        });
+        // Index()
+        $(".menuWrap_2 a").on("click", function (e) {
+          e.preventDefault();
+          $(".menuWrap_2 a").css({ "background-color": "#0ff" });
+          var idx = $(".menuWrap_2 a").index(this);
+          $(".menuWrap_2 a").eq(idx).css({ "background-color": "#f0f" });
+          $(".idxNum").text(idx);
+        });
+      });
+    </script>
+  </body>
+</html>

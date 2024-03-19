@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>jq-이벤트</title>
+  </head>
+  <body>
+    <p><button id="btn1">버튼1</button></p>
+    <p><button id="btn2">버튼2</button></p>
+    <p class="txt"></p>
+    <script>
+      $(function () {
+        $("#btn1").data({ text: "하경미" }).on({
+          mouseover: overFnc,
+          mouseout: outFnc,
+        });
+        $("#btn2").data({ text: "hakyungmi" }).on({
+          "mouseover focus": overFnc,
+          "mouseout blur": outFnc,
+        });
+        function overFnc() {
+          $(".txt").text($(this).data("text"));
+        }
+        function outFnc() {
+          $(".txt").text("안녕!");
+          // $(".txt").text("");
+        }
+      });
+    </script>
+  </body>
+</html>
