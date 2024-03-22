@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css" integrity="sha512-rV4fiystTwIvs71MLqeLbKbzosmgDS7VU5Xqk1IwFitAM+Aa9x/8Xil4CW+9DjOvVle2iqg4Ncagsbgu2MWxKQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #notice_wrap {
+        width: 300px;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        box-shadow: 0 0 8px #000;
+      }
+      #notice_wrap img {
+        width: 100%;
+      }
+      .closeWrap {
+        background-color: #000;
+        color: #fff;
+        text-align: right;
+        padding: 5px 10px;
+      }
+      .closeWrap button {
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="notice_wrap">
+      <img src="../images/pic_2.jpg" alt="사진1" />
+      <p class="closeWrap">
+        <input type="checkbox" neam="expiresChk" id="expiresChk" />
+        <label for="expiresChk">3일 동안 이 창 열지않기</label>
+        <button class="closeBtn">닫기</button>
+      </p>
+    </div>
+
+    <script>
+      $(function () {
+        if ($.cookie("popup") == "none") {
+          $("#notice_wrap").hide();
+        }
+        var $expChk = $("#expiresChk");
+        $(".closeBtn").on("click", function () {
+          // 3일 동안 이 창 열지 않기
+          if ($expChk.is(":checked")) {
+            //popup이라는 이름의 쿠키를 설정
+            $.cookie("popup", "none", { expires: 3, path: "/" });
+          }
+          $("#notice_wrap").fadeOut("fast");
+        });
+      });
+    </script>
+  </body>
+</html>

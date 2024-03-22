@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #notice_wrap {
+        width: 300px;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        box-shadow: 0 0 8px #000;
+      }
+      #notice_wrap img {
+        width: 100%;
+      }
+      .closeWrap {
+        background-color: #000;
+        color: #fff;
+        text-align: right;
+        padding: 5px 10px;
+      }
+      .closeWrap button {
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <p><button class="btn1">버튼1</button></p>
+    <p><button class="btn2">버튼2</button></p>
+
+    <script>
+      $(function () {
+        $.fn.openMessage = function (eventType, message) {
+          var ts = $(this);
+          $.each(ts, function (i, o) {
+            $(o).on(eventType, function () {
+              alert(message);
+            });
+          });
+        };
+        $(".btn1").openMessage("mouseover", "mouseover하경미");
+        $(".btn2").openMessage("click", "click하경미");
+      });
+    </script>
+  </body>
+</html>

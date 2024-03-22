@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>로그인</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>로그인</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">사용자 이름:</label>
+          <input type="text" class="form-control" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">비밀번호:</label>
+          <input type="password" class="form-control" id="password" name="password" required />
+        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+      </form>
+      <div id="welcomeMessage" style="display: none">
+        <h3>환영합니다!</h3>
+        <p id="userGreeting"></p>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // 폼 제출 이벤트 처리
+        $("#loginForm").submit(function (e) {
+          e.preventDefault();
+          // 사용자 이름과 비밀번호 가져오기
+          var username = $("#username").val();
+          var password = $("#password").val();
+          // 회원가입 페이지에서 전달한 값 가져오기
+
+          var parmUsername = localStorage.getItem("userId");
+          var parmUserpassword = localStorage.getItem("password");
+          //회원가입에서 전달된 사용자 Id와 비밀번호와  로그인폼에서 입력된 값 비교
+
+          if (username === parmUsername && password === parmUserpassword) {
+            //환영메세지 표시
+            $("#welcomeMessage").show();
+            $("#userGreeting").text(`안녕하세요! ${username}님 `);
+            // 입력필드 초기화
+            $("#username").val("");
+            $("#password").val("");
+          } else {
+            // 인증 실패 메세지
+            alert("사용자 이름 또는 비밀번호가 일치하지 않습니다.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

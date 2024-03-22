@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      /* 테두리 강조 스타일 */
+      .focused {
+        border: 2px solid #007bff;
+        outline: none; /* 포커스 테두리 제거 */
+      }
+
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <form action="#" id="signupForm">
+      <p>
+        <label for="user_id">사용자 ID</label>
+        <!-- required 속성은 HTML 폼 요소에서 사용되며, 
+            해당 요소가 사용자에 의해 반드시 입력되어야 함을 나타냅니다.
+            즉, 사용자가 해당 필드를 비우고 제출하려고 할 때
+            브라우저가 입력 필드에 값을 입력하도록 요구합니다. -->
+        <input type="text" name="user_id" id="user_id" required />
+        <span class="error"></span>
+        <!-- 에러메시지 출력할 요소 -->
+      </p>
+      <p>
+        <label for="user_pw">비밀번호</label>
+        <input type="password" name="user_pw" id="user_pw" />
+        <span class="error"></span>
+        <!-- 에러메시지 출력할 요소 -->
+      </p>
+      <p>
+        <label for="confirm_pw">비밀번호 확인</label>
+        <input type="password" name="confirm_pw" id="confirm_pw" />
+        <span class="error"></span>
+        <!-- 에러메시지 출력할 요소 -->
+      </p>
+      <button type="submit">회원가입</button>
+    </form>
+
+    <script>
+      $(document).ready(function () {
+        $("#user_id, #user_pw, #confirm_pw").on("focus", function () {
+          $(this).addClass("focused");
+        });
+        $("#user_id, #user_pw, #confirm_pw").on("blur", function () {
+          $(this).removeClass("focused");
+        });
+
+        // 회원가입 필드에서 값 가져오기
+        $("#signupForm").submit(function (e) {
+          // 폼 제출 방지
+          e.preventDefault();
+          var userId = $("#user_id").val();
+          var password = $("#user_pw").val();
+          var confirmPw = $("#confirm_pw").val();
+          // 정규표현식을 사용한 유효성 검사 (구글링)
+          var idPattern = /^[a-zA-Z0-9]{4,12}$/;
+          var pwPattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/;
+          // 아이디 유효성 검사
+          if (!idPattern.test(userId)) {
+            $("#user_id").next(".error").text("사용자 ID는 영문자와 숫자로만 이루어진 4~12자여야 합니다.");
+            return;
+          } else {
+            $("#user_id").next(".error").text("");
+          }
+          // 비밀번호 확인 검사
+          if (!pwPattern.test(password)) {
+            $("#user_pw").next(".error").text("비밀번호는 영문자와 숫자의 조합으로 6~12자여야 합니다.");
+            return;
+          } else {
+            $("#user_pw").next(".error").text("");
+          }
+          // 비밀번호 확인 유효성 검사
+          if (password !== confirmPw) {
+            $("#user_pw").next(".error").text("비밀번호가 일치하지 않습니다..");
+            return;
+          } else {
+            $("#user_pw").next(".error").text("");
+          }
+          // 회원가입 정보(아이디.비번)를 로컬 스토리지에 저장
+          localStorage.setItem("userId", userId);
+          localStorage.setItem("password", password);
+          alert("회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.");
+          // 확인/취소   confirm("회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.");
+          //로그인 페이지로 이동
+          window.location.href = "login.html";
+        });
+      });
+    </script>
+  </body>
+</html>
