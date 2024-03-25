@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부드럽게 슬라이드 토글</title>
+    <style>
+      #hz {
+        width: 200px;
+        height: 0; /* 초기 높이를 0으로 설정하여 숨김 */
+        overflow: hidden; /* 내용이 넘치는 경우를 대비해 오버플로우를 숨김 */
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        transition: height 0.5s ease; /* 슬라이드 효과를 적용하는 트랜지션 추가 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hz">홈짱닷컴 Homzzang.com</div>
+    <button id="toggleSlideButton">Toggle Slide</button>
+    <button id="toggleFadeButton">Toggle Fade</button>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hz = document.querySelector("#hz");
+        const toggleSlideButton = document.getElementById("toggleSlideButton");
+        const toggleFadeButton = document.getElementById("toggleFadeButton");
+
+        let isSlideVisible = true;
+        let isFadeVisible = true;
+
+        toggleSlideButton.addEventListener("click", function () {
+          if (isSlideVisible) {
+            hz.style.height = "100px"; /* 슬라이드 다운 시 높이를 증가시켜 보이도록 변경 */
+          } else {
+            hz.style.height = "0"; /* 슬라이드 업 시 높이를 0으로 줄여 숨김 */
+          }
+          isSlideVisible = !isSlideVisible;
+        });
+
+        toggleFadeButton.addEventListener("click", function () {
+          if (isFadeVisible) {
+            hz.style.opacity = "0";
+          } else {
+            hz.style.opacity = "1";
+          }
+          isFadeVisible = !isFadeVisible;
+        });
+      });
+    </script>
+  </body>
+</html>

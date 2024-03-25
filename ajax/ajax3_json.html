@@ -16,12 +16,12 @@
             // console.log(data);
             var outPut = "<ul>";
             $.each(data, function (key, value) {
-              outPut +=
-              `<li>
+              outPut += `<li>
                  이름 : ${value.name}<br>
                  나이 : ${value.age}<br>
                  도시 : ${value.city}
                </li>`;
+              console.log(outPut);
             });
             outPut += "</ul>";
             $("#result").html(outPut);

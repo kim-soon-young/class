@@ -12,12 +12,11 @@
     <script>
       $(document).ready(function () {
         $("#btnGetData").click(function () {
-            $.get("data.txt" , function(data){
-                // console.log("data.txt");
-                $("#result").html(data)
-            })
-        //   $("#result").text("데이터로 받아오기");
-
+          $.get("data.txt", function (data) {
+            // console.log("data.txt");
+            $("#result").html(data);
+          });
+          //   $("#result").text("데이터로 받아오기");
         });
       });
     </script>
