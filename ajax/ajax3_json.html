@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리 - Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="btnGetData">JSON 가져오기</button>
+    <div id="result"></div>
+    <script>
+      $(document).ready(function () {
+        $("#btnGetData").click(function () {
+          $.getJSON("data.json", function (data) {
+            // console.log(data);
+            var outPut = "<ul>";
+            $.each(data, function (key, value) {
+              outPut +=
+              `<li>
+                 이름 : ${value.name}<br>
+                 나이 : ${value.age}<br>
+                 도시 : ${value.city}
+               </li>`;
+            });
+            outPut += "</ul>";
+            $("#result").html(outPut);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
