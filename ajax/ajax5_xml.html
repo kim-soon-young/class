@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xml 데이터 가져오기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="btnGetName">이름 가져오기</button>
+    <button id="btnGetAge">나이 가져오기</button>
+    <div id="result"></div>
+    <script>
+      $(document).ready(function () {
+        //이름을 누르면 데이터를 가져오기
+        $("#btnGetName").click(function () {
+          $.get("data.xml", function (data) {
+            console.log(data);
+            var outPut = "<ul>";
+            var firstName = $(data).find("person").first().find("name").text();
+            outPut += `<li> Name : ${firstName} </li>`;
+            outPut += "</ul>";
+            $("#result").html(outPut);
+          });
+        });
+        // 나이버튼 누르면 데이터 가져오기
+        $("#btnGetAge").click(function () {
+          $.get("data.xml", function (data) {
+            var outPut = "<ul>";
+            var firstAge = $(data).find("person").first().find("age").text();
+            outPut += `<li> AGE : ${firstAge} </li>`;
+            outPut += "<ul>";
+            $("#result").html(outPut);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
