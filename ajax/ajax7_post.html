@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xml 데이터 가져오기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    Name: <input type="text" id="name" /><br />
+    Email: <input type="text" id="email" /><br />
+    <button id="btnSubmit">전송</button>
+    <script>
+      $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+          var userData = {
+            name: $("#name").val(),
+            email: $("#email").val(),
+          }
+          $.post("submit.php", userData, function(){
+            console.log(data);
+          })
+        });
+      });
+    </script>
+  </body>
+</html>
