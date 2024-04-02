@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax-data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="btnGetJson">JSON 데이터 가져오기</button>
+    <div id="result"></div>
+    <script>
+      $(document).ready(function () {
+        $("#btnGetJson").click(function () {
+          $.ajax({
+            url: "json/data.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+              $("#result").empty();
+              $.each(data, function (index, person) {
+                var personDiv = $(`<div>`).addClass("person");
+                var nameButton = $(`<button>`).addClass("name").text(person.name);
+                var infoDiv = $(`<div>`).addClass("person-info");
+                infoDiv.append(`<p><strong>Person : ${index + 1}</strong></p> `);
+                $.each(person, function (key, value) {
+                  infoDiv.append(`<p class = "${key}"> ${key} : ${value} </p>`);
+                });
+                personDiv.append(nameButton);
+                personDiv.append(infoDiv);
+                $("#result").append(personDiv);
+              });
+              // 이름 버튼을 클릭 -> 이벤트 등록
+              $(".name").click(function () {
+                $(this).siblings(".person-info").toggle();
+              });
+            },
+            error: function (xhr, status, error) {
+              console.log("오류 :", status, error);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
