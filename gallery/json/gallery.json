@@ -1,0 +1,58 @@
+[
+    {
+        "img":"gallery/gallery1.jpg",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+    },
+    {
+        "img":"gallery/gallery2.png",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+
+
+    },
+    {
+        "img":"gallery/gallery3.jpg",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+
+    },
+    {
+        "img":"gallery/gallery4.jpg",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+
+    },
+    {
+        "img":"gallery/gallery5.jpg",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+
+    },
+    {
+        "img":"gallery/gallery6.jpg",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+
+    },
+    {
+        "img":"gallery/gallery7.jpg",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+
+    },
+    {
+        "img":"gallery/gallery8.jpg",
+        "title" : "아이템제목1",
+        "dec" : "아이템 설명",
+        "info" :"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum beatae obcaecati perferendis commodi ipsa nam iusto dolores dolore praesentium unde, quod iure est molestias voluptas ut non laudantium! Quidem, eveniet?"
+
+    }
+]
