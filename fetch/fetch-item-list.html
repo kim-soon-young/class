@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accordion Fetch</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: beige;
+    }
+    .item {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      cursor: pointer;
+    }
+  .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .description {
+      display: none;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="items-container">
+</div>
+<script>
+  fetch("items.json")
+    .then(response => response.json())
+    .then(data => {
+      const itemsContainer = document.getElementById("items-container");
+      data.forEach(item => {
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+        
+        // 타이틀과 설명을 하나의 div로 묶어서 생성
+        const contentDiv = document.createElement("div");
+        contentDiv.classList.add("content");
+
+        // 타이틀 추가
+        const titleDiv = document.createElement("div");
+        titleDiv.classList.add("title");
+        titleDiv.textContent = item.title;
+        contentDiv.appendChild(titleDiv);
+
+        // 설명 추가
+        const descriptionDiv = document.createElement("div");
+        descriptionDiv.classList.add("description");
+        descriptionDiv.textContent = item.description;
+        contentDiv.appendChild(descriptionDiv);
+
+        // 클릭 이벤트 처리
+        itemDiv.addEventListener("click", () => {
+          const description = itemDiv.querySelector(".description");
+          if (description.style.display === "none") {
+            description.style.display = "block";
+          } else {
+            description.style.display = "none";
+          }
+        });
+
+        // 아이템에 추가
+        itemDiv.appendChild(contentDiv);
+        itemsContainer.appendChild(itemDiv);
+      });
+    })
+    .catch(error => console.error("Error:", error));
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch()메서드</title>
+
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        fetch("content.html")
+        .then(response => {
+            if(!response.ok){
+                throw new Error ("네트워크 응답이 올바르지 않습니다.")
+            }
+            return response.text();
+        })
+        .then((html)=>{
+            // console.log(html);
+            document.getElementById('content').innerHTML = html;
+        })
+        .catch(error =>{ 
+            console.error("네트워크 요청 작업에 문제가 있습니다.", "error");
+        })
+    </script>
+</body>
+</html>
