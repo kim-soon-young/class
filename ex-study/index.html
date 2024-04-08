@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+      img {
+        vertical-align: middle;
+      }
+      label {
+        filter: brightness(0);
+        border: 3px solid;
+        display: inline-block;
+        margin: 3px;
+        transition: 0.3s;
+      }
+      input:checked + label {
+        filter: brightness(1);
+        border: 3px solid orange;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        $("body").append(`<div class="wrap"></div>`);
+        //31개의 체크박스와 각각의 이미지를 wrap div에 추가
+        var i = 0;
+        while (i < 31) {
+          $(".wrap").append(`<input type = "checkbox" id ="sel${i}">
+            <label for = "sel${i}"><img src= "images/icon_portrait(${i}).png"></label>
+            `);
+          i++;
+        }
+        // 선택된 항목들을 보여줄 요소들을 body에 추가
+        $("body").append(`<p>선택된 이미지</p>`);
+        $("body").append(`<p id="selected">sel${i}</p>`);
+        // 각 input 요소의 변경을 감지하여 선택된 항목들을 표시
+        $("input").css("position", "absolute").css("left", "-9999px");
+        $(".wrap > input").change(function () {
+          var selectedItems = [];
+          $(".wrap > input:checked").each(function () {
+            selectedItems.push($(this).attr("id"));
+          });
+          // 배열을 문자열로 변환하여 출력
+          $("#selected").text(selectedItems.join(" "));
+        });
+      });
+    </script>
+  </body>
+</html>
