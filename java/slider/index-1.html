@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무한 슬라이더</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/infinite-slider.css">
+    <script src="js/main.js" type="module"></script>
+<style>
+  @charset "utf-8";
+.infinite-slider-wrap{
+    position:relative; overflow:hidden;
+    width:100%; max-width:100vw; aspect-ratio:3/1;
+    border:1px solid #fff;
+}
+ 
+.infinite-slider{
+    --gap:5vmin;
+    display:flex;flex-flow:row nowrap;
+    gap:var(--gap);
+    position:relative;
+    height:100%;
+    cursor:grab;
+    transition:transform .3s .1s;
+}
+ 
+    .infinite-slider.off-transition{
+        transition:none;
+    }
+ 
+/* 아이템 */
+.infinite-slider > li{
+    flex:none;
+    display:flex;
+    justify-content:center;align-items:center;
+    position:relative;
+    height:100%; aspect-ratio:2.5/1;
+    background-color:var(--bg-color);
+    font-size:10vmax;
+    opacity:.3;
+    transition:opacity .2s linear, boxShadow .2s .4s linear;
+    user-select:none;
+}
+ 
+    /* li.on */
+    .infinite-slider > li.on{
+        opacity:1;
+        box-shadow:0 0 5rem var(--bg-color);
+    }
+ 
+/* [페이저] */
+.infinite-slider-pager{
+    display:flex;
+    gap:15px;
+    position:absolute;
+    left:50%; bottom:20px;
+    transform:translateX(-50%);
+}
+ 
+.infinite-slider-pager button{
+    height:16px; width:10vmin;
+    background:rgba(255,255,255,.5);
+    border:1px solid #00000055;
+    border-radius:50px;
+    cursor:pointer;
+}
+    /* on */
+    .infinite-slider-pager button.on{
+        background:rgba(255,255,255);
+        border-color:#000;
+        box-shadow:0 0 2rem rgba(255,255,255,1);
+    }
+ 
+/* 버튼 */
+.infinite-slider-btn-prev,
+.infinite-slider-btn-next{
+    display:block;
+    position:absolute;
+    width:7vmin; aspect-ratio:1/1;
+    top:50%;transform:translateY(-50%);
+    background:#fff;
+    border:1px solid #000; border-radius:50%;
+    cursor:pointer;
+}
+.infinite-slider-btn-prev{left:20px;}
+.infinite-slider-btn-next{right:20px;}
+ 
+.infinite-slider-btn-prev::after,
+.infinite-slider-btn-next::after{
+    content:'';display:block;position:absolute;pointer-events:none; box-sizing:border-box;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    width:30%;aspect-ratio:1/1;
+    border:7px solid #000;
+}
+ 
+.infinite-slider-btn-prev::after{
+    left:55%;
+    border-width:0 0 7px 7px;
+}
+.infinite-slider-btn-next::after{
+    left:47%;
+    border-width:7px 7px 0 0;
+}
+ 
+출처: https://aosceno.tistory.com/682 [창고:티스토리]
+</style>
+</head>
+<body>
+
+    <h1>Infinite Slider</h1>
+    <ul class="infinite-slider" id="slider-test">
+        <li style="--bg-color:salmon">0</li>
+        <li style="--bg-color:orange">1</li>
+        <li style="--bg-color:gold">2</li>
+        <li style="--bg-color:royalblue">3</li>
+        <li style="--bg-color:violet">4</li>
+        <li style="--bg-color:tomato">5</li>
+    </ul>
+    <h6>Thank you!</h6>
+ 
+    <template>
+        위의 아이템이 다음과 같이 변합니다.
+        <div class="infinite-slider-wrap">
+            <ul class="infinite-slider">
+                <li data-slider-item="0" style="--bg-color:salmon">1</li>
+                <li data-slider-item="1" style="--bg-color:orange">2</li>
+                <li data-slider-item="2" style="--bg-color:yellow">3</li>
+                <li data-slider-item="3" style="--bg-color:green">4</li>
+                <li data-slider-item="4" style="--bg-color:royalblue">5</li>
+            </ul><!-- infinite-slider -->
+    
+            <div class="infinite-slider-pager">
+                <button data-slider-item="0" title="1" class="on"></button>
+                <button data-slider-item="1" title="2"></button>
+                <button data-slider-item="2" title="3"></button>
+                <button data-slider-item="3" title="4"></button>
+                <button data-slider-item="4" title="5"></button>
+            </div>
+    
+            <button class="infinite-slider-btn-prev" title="이전"></button>
+            <button class="infinite-slider-btn-next" title="다음"></button>
+        </div>
+    </template>
+</body>
+</html>
+출처: https://aosceno.tistory.com/682 [창고:티스토리]
