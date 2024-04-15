@@ -1,0 +1,95 @@
+@charset "utf-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.work-section {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+/* header */
+.work-section .header {
+  background: url("../images/bg-noise.png");
+  line-height: 70px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+.work-section .header .inner {
+  width: 960px;
+  margin: 0 auto;
+}
+.work-section .header h1 {
+  float: left;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+.work-section .header .tab-nav {
+  float: right;
+  border-left: 1px solid rgb(220, 220, 220);
+}
+.work-section .header .tab-nav li {
+  float: left;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+.work-section .header .tab-nav li a {
+  display: block;
+  padding: 0 2em;
+  position: relative;
+}
+.work-section .header .tab-nav li a:hover,
+.work-section .header .tab-nav li a.active {
+  background-color: #888;
+  color: #fff;
+}
+.work-section .header .tab-nav li a.active::after {
+  background: url("../images/sprites.png") no-repeat 0 0;
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 50%;
+  width: 37px;
+  height: 19px;
+  transform: translateX(-50%);
+}
+/* tabitem */
+.work-section .section {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.work-section .section .tabitem {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.work-section .section .tabitem img {
+  width: 100%;
+  opacity: 0.8;
+}
+.work-section .section .tabitem .content {
+  position: absolute;
+  top: 10%;
+  width: 30%;
+  right: 0;
+  line-height: 1.8;
+  color: #fff;
+}
+.work-section .section .tabitem .content .read-mord {
+  font-size: 14px;
+  display: inline-block;
+  padding: 5px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
