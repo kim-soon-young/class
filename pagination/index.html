@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>페이지네이션 연습</title>
+    <style>
+         * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f7f7f7;
+      padding: 20px;
+    }
+  a{
+    text-decoration: none;
+    color: #333;
+  }
+    #content {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    /* Pagination 스타일 */
+    #pagination {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      justify-content: center;
+    }
+    #pagination li {
+      margin-right: 5px;
+    }
+    #pagination a {
+      display: block;
+      padding: 8px 12px;
+      background-color: #eee;
+      text-decoration: none;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    #pagination a:hover {
+      background-color: #ddd;
+    }
+    #pagination a.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    </style>
+
+  </head>
+  <body>
+    <ul id="content">
+      <li id="items">
+        <!-- 각 항목들 출력 -->
+      </li>
+    </div>
+    <div id="pagination">
+      <!-- 해당 페이지네이션 -->
+    </div>
+    <script>
+      const items = document.getElementById("items");
+      const pagination = document.getElementById("pagination");
+      const itemsPerPage = 5; // 페이지당 아이템 수
+      const totalItems = 20; // 총 아이템 수
+      function renderItems(page) {
+        // 아이템을 보여주는 함수
+        items.innerHTML = "";
+        for (
+          let i = (page - 1) * itemsPerPage + 1; // i는 0으로 시작하겠다.
+          i <= Math.min(page * itemsPerPage, totalItems);
+          i++
+        ) {
+          const li = document.createElement("li");
+          li.textContent = `item${i}`;
+          items.appendChild(li);
+        }
+      }
+      // 페이지네이션에 보여주는 함수
+      function renderPagination(currentPage) {
+        pagination.innerHTML = "";
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement("a");
+          pageLink.textContent = i;
+          pageLink.href = `#{i}`;
+          if (i === currentPage) {
+            pageLink.classList.add("active");
+          }
+          pageLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            renderItems(i);
+            renderPagination(i);
+          });
+          const li = document.createElement("li")
+          li.appendChild(pageLink)
+          pagination.appendChild(li)
+        }
+      }
+      renderItems(1); // 첫 페이지 아이템 랜더링
+      renderPagination(1); // 페이지네이션 랜더링
+    </script>
+  </body>
+</html>
