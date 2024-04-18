@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고양이 리스트</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      a {
+        text-decoration: none;
+      }
+      #catList {
+        display: flex;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        width: 1000px;
+        /* background-color: aquamarine; */
+        justify-content: space-between;
+      }
+
+      .cat-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: calc(30% - 20px);
+        margin: 0 auto;
+        background-color: aliceblue;
+      }
+
+      .cat-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+      }
+      /* 페이지네이션 */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .page-link {
+        margin: 0 5px;
+        padding: 10px 15px;
+        background-color: #3498db;
+        /* 배경색 */
+        color: #fff;
+        /* 글꼴색 */
+        border: none;
+        border-radius: 20px;
+        /* 둥근 모서리 */
+
+        font-weight: bold;
+        transition: background-color 0.3s;
+        /* 호버 효과 */
+      }
+
+      .page-link:hover {
+        background-color: #2980b9;
+        /* 호버 시 배경색 변경 */
+      }
+
+      .active-page {
+        background-color: #29b96a;
+        /* 활성 페이지 배경색 변경 */
+      }
+
+      .disabled {
+        background-color: #ccc;
+        /* 비활성화된 버튼 배경색 */
+        pointer-events: none;
+        /* 비활성화된 버튼을 클릭하지 못하게 설정 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="catList">
+      <!-- js 출력 고양이 리스트 -->
+    </div>
+    <div class="pagination" id="pagination">
+      <!-- js 출력 pagination -->
+    </div>
+    <script>
+      // 변수 선언
+      const itemsPerPage = 3; // 고양이 리스트를 3개 보이겠다.
+      let currentPage = 1; // 페이지 1번
+      const catListDiv = document.getElementById("catList");
+      const paginationDiv = document.getElementById("pagination");
+      const prevButton = document.createElement("a"); // 이전버튼
+      const nextButton = document.createElement("a"); // 다음버튼
+      // URL에서 쿼리문자열을 읽어와서 고양이의 아이디를 가져온다.
+      const urlParams = new URLSearchParams(window.location.search);
+      const catId = urlParams.get("id");
+
+      // 내가 정한 함수displayCatInfo 매개변수 page를 사용해서
+      // 고양이 정보를 가져와서 화면에 출력하는 함수
+      function displayCatInfo(page) {
+        // console.log(page); //배열전체
+        fetch("cat.json")
+          // 첫번째 .then, .catch 거의 같음
+          // 두번째 .then 중요
+          .then((response) => response.json())
+          .then(function (data) {
+            // console.log(data);  // 페이지네이션 계산
+            // console.log(startIndex); // startIndex 시작을 0으로 만듬
+            const startIndex = (page - 1) * itemsPerPage;
+            // console.log(endIndex); // endIndex 를 3으로 만듬
+            const endIndex = startIndex + itemsPerPage;
+            // console.log(catsOnpage);  // 0 + 3 ( 0,1,2)
+            const catsOnpage = data.slice(startIndex, endIndex);
+
+            catListDiv.innerHTML = "";
+            catsOnpage.forEach((cat) => {
+              // console.log(cat); //배열 속성들이 같이 나옴
+              const catCard = document.createElement("div");
+              //console.log(catCard);  //forEach 돌렸으니깐 div 3개나옴
+              catCard.className = "cat-card";
+              // console.log(catCard); //<div class="cat-card"></div>
+              catCard.innerHTML = `
+                <a href="catcate.html?id=${cat.id}">
+                <img class="cat-image" src="${cat.url}" alt="${cat.title} 사진">
+                <h2>${cat.title}</h2>
+                <p>고양이 특징: ${cat.description}</p>
+                </a>
+                `;
+              // console.log(catCard); //포함된다.
+              catListDiv.appendChild(catCard);
+            });
+            // 페이지네이션에 쓰는 게 아니라
+            // 데이터가 fetch안에 있으니깐 여기에서 부른다.
+            pagination(data.length);
+          })
+          .catch((error) => {
+            console.error("데이터를 가져오는 중 에러가 발생했습니다:", error);
+          });
+      }
+
+      //페이지네이션 만들기
+      function pagination(totalItems) {
+        paginationDiv.innerHTML = "";
+        //totalItems: 전체 항목의 수  -> 10
+        //itemsPerPage: 페이지당 보여지는 항목 수 -> 3
+        //totalPages: 전체 페이지 수 -> 10/3 = 3.33 => 페이지네이션 4개
+        // console.log(totalPages);
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement("a");
+          pageLink.className = "page-link";
+          pageLink.href = `?id=${catId}&page=${i}`;
+          pageLink.textContent = i;
+          if (i === currentPage) {
+            pageLink.classList.add("active-page"); // 활성 페이지 강조
+          }
+          paginationDiv.appendChild(pageLink);
+        }
+        // 이전버튼
+        prevButton.className = "page-link";
+        prevButton.textContent = "이전";
+        if (currentPage > 1) {
+          prevButton.href = `?id=${catId}&page=${currentPage - 1}`;
+        } else {
+          prevButton.classList.add("disabled"); //현재 페이지가 1일 경우 비활성화
+        }
+        paginationDiv.insertBefore(prevButton, paginationDiv.firstChild);
+        // 다음버튼
+        nextButton.className = "page-link";
+        nextButton.textContent = "다음";
+        if (currentPage < totalPages) {
+          nextButton.href = `?id=${catId}&page=${currentPage + 1}`;
+        } else {
+          nextButton.classList.add("disabled"); // 마지막 페이지일 경우 비활성화
+        }
+
+        paginationDiv.appendChild(nextButton);
+      }
+      // 페이지 로드시 고양이 정보 출력
+      document.addEventListener("DOMContentLoaded", function () {
+        const pageParm = urlParams.get("page");
+        if (pageParm) {
+          currentPage = parseInt(pageParm);
+        }
+        // 함수는 한 번 불러줘야 나옴
+        displayCatInfo(currentPage);
+      });
+    </script>
+  </body>
+</html>
