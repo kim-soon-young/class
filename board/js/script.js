@@ -28,16 +28,16 @@ window.onload = function () {
     const postElement = document.createElement("li");
     postElement.classList.add("post");
     postElement.innerHTML = `
-  <div class="post-content">
-  <h2>${post.title}</h2>
-  ${post.date ? `<p>Date: ${post.date}</p>` : ""} <!-- Display the date if it's not null -->
-  <div class="post-details">
-      <p>${post.content}</p>
-      ${post.image ? `<img src="${post.image}" alt="게시글 이미지">` : ""}
-  </div>
-  <button class="delete-post-btn">닫기</button> <!-- Close button -->
-  </div>
-  `;
+<div class="post-content">
+<h2>${post.title}</h2>
+${post.date ? `<p>Date: ${post.date}</p>` : ""} <!-- Display the date if it's not null -->
+<div class="post-details">
+    <p>${post.content}</p>
+    ${post.image ? `<img src="${post.image}" alt="게시글 이미지">` : ""}
+</div>
+<button class="delete-post-btn">닫기</button> <!-- Close button -->
+</div>
+`;
     //   삭제 버튼에 클릭 이벤트 처리기능
     const deletButton = postElement.querySelector(".delete-post-btn");
     deletButton.addEventListener("click", function () {
