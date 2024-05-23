@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 핸들링</title>
+    <style>
+        #colorBox {
+            width: 100px; height: 100px; background-color: aqua
+        }
+        .red-bg{
+            background-color: red !important;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="colorBox"></div>
+    <button id="colorChangeBtn">색상변경</button>
+  <script>
+      let colorChangeBtn = document.getElementById("colorChangeBtn");
+      colorChangeBtn.addEventListener("click", () => {
+        const box = document.getElementById("colorBox");
+        // if (box.style.backgroundColor === "aqua") {
+        //     box.style.backgroundColor = "blue";
+        // } else {
+        //     box.style.backgroundColor = "red";
+        // }
+        // 삼함연산자
+        // box.style.backgroundColor = box.style.backgroundColor === "aqua" ? "blue" : "red";
+        box.classList.toggle("red-bg")
+    });
+
+    </script>
+    
+  </body>
+</html>

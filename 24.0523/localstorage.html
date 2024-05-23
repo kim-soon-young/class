@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로컬스토리지 예제</title>
+  </head>
+  <body>
+    <input type="text" id="inputField" placeholder="값 입력" />
+    <button id="saveBtn">저장</button>
+    <button id="loadBtn">불러오기</button>
+    <div id="display"></div>
+    <script>
+      document.getElementById("saveBtn").addEventListener("click", function () {
+        const inputValue = document.getElementById("inputField").value;
+        localStorage.setItem("saveValue", inputValue);
+      });
+      document.getElementById("loadBtn").addEventListener("click", function () {
+        const saveValue = localStorage.getItem("saveValue");
+        if (saveValue) {
+          document.getElementById("display").innerText = `저장된 값: ${saveValue}`;
+        } else {
+          document.getElementById("display").innerText = `저장된 값이 없습니다.`;
+        }
+      });
+    </script>
+  </body>
+</html>

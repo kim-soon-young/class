@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 조작하기</title>
+</head>
+<body>
+    <h1 id="title">안녕하세요?</h1>
+    <button id="changeTextBtn"> 텍스트 변경 </button>
+    <script>
+        document.getElementById('title').addEventListener('click', function(){
+            // this.style.color='blue';
+            
+        })
+        document.getElementById('changeTextBtn').addEventListener('click', function(){
+            // this.style.color='red'
+            document.getElementById("title").innerText = "하경미님"
+        })
+
+    </script>
+</body>
+</html>

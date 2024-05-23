@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+        
+          margin: 0;
+          padding: 20px;
+          background-color: #f0f0f0;
+        }
+        label {
+          font-size: 18px;
+          margin-right: 10px;
+        }
+        select {
+          font-size: 16px;
+          padding: 5px;
+          margin-bottom: 20px;
+        }
+        p {
+          font-size: 18px;
+          background-color: #ffffff;
+          padding: 15px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          max-width: 500px;
+        }
+        .wrap {
+          width: 50%;
+          background-color: #dbf1f9;
+          margin: auto;
+          padding: 50px;
+        }
+      </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <label for="weather">오늘 날씨를 선택하세요: </label>
+      <select id="weather">
+        <option value="">--선택하세요--</option>
+        <option value="sunny">맑음</option>
+        <option value="rainy">비</option>
+        <option value="snowing">눈</option>
+        <option value="overcast">흐림</option>
+      </select>
+      <p></p>
+      <!-- 여기에 추가된 <p> 요소 -->
+    </div>
+    <script>
+      const select = document.querySelector("select");
+      const para = document.querySelector("p");
+      select.addEventListener("change", setWeather);
+      function setWeather() {
+        const choice = select.value;
+        if (choice === "sunny") {
+          para.textContent = "오늘 날씨가 맑고 화창합니다. 반바지를 입으세요! 해변이나 공원에 가서 아이스크림을 먹어보세요.";
+        } else if (choice === "rainy") {
+          para.textContent = "밖에 비가 내리고 있습니다. 우비와 우산을 챙기고, 오래 밖에 있지 마세요.";
+        } else if (choice === "snowing") {
+          para.textContent = "오늘은 눈이 내리고 오후가 되면 눈사람을 만들 수 있어요.";
+        } else if (choice === "overcast") {
+          para.textContent = "유독 사람들이 예뻐보일 수 있습니다. 흐릿한 날씨 좋은 인연 만나세요.";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch를 사용한 이미지 로드 토글기능</title>
+  </head>
+  <body>
+    <button id="loadImgBt">이미지로드</button>
+    <div id="imgContainer">
+      <!-- js -->
+    </div>
+    <script>
+      const loadImgBt = document.getElementById("loadImgBt");
+      const container = document.getElementById("imgContainer");
+      let imagesLoaded = false;
+
+      function loadImages() {
+        fetch("img.json")
+          .then((response) => response.json())
+          .then((data) => {
+            container.innerHTML = ""; // 기존 이미지를 지운다.
+            data.forEach((item) => {
+              container.innerHTML += `
+              <div>
+                <h2>${item.title}</h2>
+                <img src="${item.url}" alt="${item.title}" />
+              </div>
+            `;
+            });
+            imagesLoaded = true;
+            loadImgBt.textContent = "이미지 제거";
+          })
+          .catch((error) => {
+            console.error("Fetch error:", error);
+          });
+      }
+
+      function removeImages() {
+        container.innerHTML = ""; // 이미지를 지운다.
+        imagesLoaded = false;
+        loadImgBt.textContent = "이미지로드";
+      }
+
+      loadImgBt.addEventListener("click", function () {
+        if (!imagesLoaded) {
+          loadImages();
+        } else {
+          removeImages();
+        }
+      });
+    </script>
+  </body>
+</html>
